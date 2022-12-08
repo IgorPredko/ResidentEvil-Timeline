@@ -1,0 +1,149 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #fff;
+  background-color: #4c4177;
+  background-image: linear-gradient(315deg, #4c4177 0% #2a5470 74%);
+  /* background-color: #2d2926ff; */
+  background-color: #000;
+  font-family: "Anton", sans-serif;
+}
+
+h2 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 400;
+}
+
+.container {
+  padding: 2rem;
+  padding-bottom: 400px;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.top-section {
+  text-align: center;
+  padding: 4rem 0;
+  max-width: 600px;
+  margin: 0 auto;
+  border-bottom: 1px solid #e94b3cff;
+}
+
+.timeline {
+  position: relative;
+  min-height: 150px;
+}
+
+.line {
+  position: absolute;
+  z-index: 2;
+  left: calc(50% - 1px);
+  width: 1px;
+  top: -50px;
+  bottom: -50px;
+  background-color: #e94b3cff;
+  display: none;
+}
+
+.line:before,
+.line:after {
+  position: absolute;
+  display: block;
+  content: "";
+  border-radius: 50%;
+  background-color: #e94b3cff;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.line:after {
+  bottom: 0;
+}
+
+.section {
+  display: flex;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: 600ms ease;
+  position: relative;
+  z-index: 1;
+  margin: 50px 0;
+  padding: 1rem;
+  border-radius: 1rem;
+  align-items: center;
+  min-height: 300px;
+}
+
+.section:nth-child(odd) {
+  flex-direction: row-reverse;
+  transform: translateX(100%);
+}
+
+.bead {
+  position: absolute;
+  display: block;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  background-color: #e94b3cff;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  z-index: 9999;
+}
+
+.bead img {
+  height: 60px;
+  width: 60px;
+}
+
+.content {
+  width: calc(50% - 2rem);
+  /* border: 1px solid #e94b3cff; */
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  /* box-shadow: 0 0 35px #e94b3cff; */
+  background-color: #2d2926ff;
+}
+
+.content p {
+  color: #ccc;
+  font-weight: bold;
+}
+
+.show-me:nth-child(n) {
+  transform: none;
+  opacity: 1;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: #fff;
+}
+span {
+  color: red;
+}
+
+.umberellaLogo {
+  width: 300px;
+  height: 300px;
+}
+
+.reImg {
+  max-height: 300px;
+  max-width: 200px;
+}
+p {
+  font-family: "Roboto Mono", monospace;
+  padding: 10px;
+}
