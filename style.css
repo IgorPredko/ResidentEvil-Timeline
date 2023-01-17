@@ -5,17 +5,77 @@ body {
   line-height: 1.5;
   font-weight: 400;
   color: #fff;
-  background-color: #4c4177;
-  background-image: linear-gradient(315deg, #4c4177 0% #2a5470 74%);
-  /* background-color: #2d2926ff; */
   background-color: #000;
   font-family: "Anton", sans-serif;
+}
+
+.top {
+  z-index: 9999;
+  position: sticky;
+  top: 0;
+  background-color: #000;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  padding: 20px;
+}
+
+.nav {
+  margin: auto 0 auto auto;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  vertical-align: middle;
+  margin-right: 20px;
+  float: right;
+}
+
+.top-title {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-title-content {
+  font-size: 6em;
+  letter-spacing: 0.05em;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  display: flex;
+  list-style: none;
+  padding: 10px;
+  display: flex;
+  color: red;
+  font-size: 2em;
+  margin: 10px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  color: #fff;
+}
+
+.timeline-title {
+  font-family: "Permanent Marker", cursive;
+  color: red;
+  font-size: 2em;
+  text-shadow: 1px 2px 3px #000;
 }
 
 h2 {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 400;
+  font-size: 2em;
+}
+
+.container-wrap {
+  width: 100%;
 }
 
 .container {
@@ -23,6 +83,7 @@ h2 {
   padding-bottom: 400px;
   margin: 0 auto;
   max-width: 800px;
+  width: 100%;
 }
 
 .top-section {
@@ -31,16 +92,17 @@ h2 {
   max-width: 600px;
   margin: 0 auto;
   border-bottom: 1px solid #e94b3cff;
+  margin-top: 100px;
 }
 
 .timeline {
   position: relative;
   min-height: 150px;
+  z-index: 1;
 }
 
 .line {
   position: absolute;
-  z-index: 2;
   left: calc(50% - 1px);
   width: 1px;
   top: -50px;
@@ -70,7 +132,6 @@ h2 {
   transform: translateX(-100%);
   transition: 600ms ease;
   position: relative;
-  z-index: 1;
   margin: 50px 0;
   padding: 1rem;
   border-radius: 1rem;
@@ -93,7 +154,6 @@ h2 {
   left: 50%;
   top: 20%;
   transform: translateX(-50%);
-  z-index: 9999;
 }
 
 .bead img {
@@ -103,15 +163,28 @@ h2 {
 
 .content {
   width: calc(50% - 2rem);
-  /* border: 1px solid #e94b3cff; */
   border-radius: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   align-items: center;
-  /* box-shadow: 0 0 35px #e94b3cff; */
   background-color: #2d2926ff;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.7s;
+}
+
+.content:hover {
+  transform: scale(1.05);
+  animation: blink 1.2s infinite alternate;
+}
+
+@keyframes blink {
+  100% {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px red, 0 0 70px red,
+      0 0 80px red;
+  }
 }
 
 .content p {
@@ -137,13 +210,726 @@ span {
 .umberellaLogo {
   width: 300px;
   height: 300px;
+  margin-top: 50px;
 }
 
 .reImg {
   max-height: 300px;
   max-width: 200px;
 }
+
 p {
   font-family: "Roboto Mono", monospace;
   padding: 10px;
+}
+
+.to-the-top {
+  font-family: "Source Code Pro", monospace;
+  font-weight: 100;
+  padding: 10px;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  cursor: pointer;
+  background-color: #2d2926ff;
+  border-radius: 20px;
+  user-select: none;
+  position: fixed;
+  bottom: 10px;
+  right: 5px;
+  margin: 20px;
+  z-index: 9999;
+  color: #e94b3cff;
+  transition: 0.25s;
+  display: none;
+}
+
+.to-the-top:hover {
+  background-color: rgb(58, 54, 51);
+  font-weight: bold;
+  animation: blink 1.2s infinite alternate;
+}
+
+.back-wrapper {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+}
+
+.background {
+  height: 100vh;
+  background-image: url(img/back/ReBack4.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.4;
+  width: 120%;
+  animation: zoom-out 12s linear infinite;
+}
+
+@keyframes zoom-out {
+  100% {
+    width: 100%;
+  }
+}
+
+/* /////////////////////////////MODAL//////////////////////////////////////////////////////////////// */
+.modal {
+  position: fixed;
+  top: 100px;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  padding: 20px;
+  display: none;
+  z-index: 9999;
+  width: 80%;
+  height: 80%;
+  background-color: #181818;
+  color: #fff;
+  border-radius: 16px;
+  text-align: center;
+  overflow: hidden;
+}
+.modal-content {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  height: 50vh;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.modal-item {
+  flex: 1;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: none;
+  transition: flex 0.8s ease;
+  cursor: pointer;
+}
+
+.modal-item:first-child {
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+.modal-item:last-child {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+.modal-item:hover {
+  flex: 5;
+  background-position: top;
+}
+
+.modal-item p {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: flex 0.8s ease;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Oswald", sans-serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.modal-item:hover p {
+  display: block;
+  animation: showText 1s;
+}
+
+@keyframes showText {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.3;
+  }
+  60% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #4c4177;
+  font-size: 2em;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close:hover {
+  color: #fff;
+}
+
+.show {
+  display: block;
+}
+
+.soundIcon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #ccc;
+  background-image: url(img/sound-img/on.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.soundIcon:hover {
+  transform: scale(1.1);
+}
+
+.sound-icon-off {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #ccc;
+  background-image: url(img/sound-img/off.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.soundIcon:hover {
+  transform: scale(1.1);
+}
+
+/* /////////////////////////RE0/////////////////////////////// */
+
+.modal-item-1 {
+  background-image: url(img/re0/Billy_Coen_03.webp);
+}
+
+.modal-item-2 {
+  background-image: url(img/re0/Rebecca-Vendetta-Render.webp);
+}
+
+.modal-item-3 {
+  background-image: url(img/re0/JamesMarcusConcept_t.webp);
+  background-color: #fcc;
+}
+
+.modal-item-4 {
+  background-image: url(img/re0/Birkin_t.webp);
+  background-color: #cc9;
+}
+
+.modal-item-5 {
+  background-image: url(img/re0/RE0Enrico.webp);
+}
+
+.modal-item-6 {
+  background-image: url(img/re0/Wesker_RE0.webp);
+  background-color: #ff78;
+}
+
+.modal-item-7 {
+  background-image: url(img/re0/Richard_Aiken_t.webp);
+  background-color: #ccc;
+}
+
+/* /////////////////////////RE1/////////////////////////////// */
+
+.modal-item-11 {
+  background-image: url(img/re1/Chris_Full_RE1make.webp);
+}
+
+.modal-item-12 {
+  background-image: url(img/re0/Rebecca-Vendetta-Render.webp);
+}
+
+.modal-item-13 {
+  background-image: url(img/re1/Jill_Full_RE1make.webp);
+  background-color: #fcc;
+}
+.modal-item-14 {
+  background-image: url(img/re1/Barry_Burton_RE5.webp);
+  background-color: #cc9;
+}
+.modal-item-15 {
+  background-image: url(img/re0/RE0Enrico.webp);
+}
+
+.modal-item-16 {
+  background-image: url(img/re0/Wesker_RE0.webp);
+  background-color: #ff78;
+}
+.modal-item-17 {
+  background-image: url(img/re0/Richard_Aiken_t.webp);
+  background-color: #ccc;
+}
+.modal-item-18 {
+  background-image: url(img/re1/RE3_remake_January_14_2020_images_29.webp);
+  background-color: #ccc;
+}
+
+/* /////////////////////////////RE2//////////////////////////////////////////// */
+
+.modal-item-21 {
+  background-image: url(img/re2/LeonRE2RemakeRender.webp);
+  background-color: #ccc;
+}
+
+.modal-item-22 {
+  background-image: url(img/re2/PUBG_Mobile_X_Resident_Evil_2_Claire_Skin_Set.webp);
+  background-color: #ff78;
+}
+
+.modal-item-23 {
+  background-image: url(img/re2/Resident_evil_2_2019_ada_wong_render.webp);
+  background-color: #fcc;
+}
+.modal-item-24 {
+  background-image: url(img/re2/Sherry_Re2_remake_render.webp);
+  background-color: #cc9;
+}
+.modal-item-25 {
+  background-image: url(img/re2/William_Birkin_29.webp);
+}
+
+.modal-item-26 {
+  background-image: url(img/re2/Annette4.webp);
+  background-color: #ff78;
+}
+.modal-item-27 {
+  background-image: url(img/re2/Brian_Irons_29.webp);
+  background-color: #ccc;
+}
+.modal-item-28 {
+  background-image: url(img/re2/Brian_Irons_29.webp);
+  background-color: #ccc;
+}
+.modal-item-29 {
+  background-image: url(img/re2/Robert_Kendo_29.webp);
+  background-color: #ccc;
+}
+.modal-item-29-1 {
+  background-image: url(img/re2/Marvin_Branagh_29.webp);
+  background-color: #ccc;
+}
+.modal-item-29-2 {
+  background-image: url(img/re2/Benre2remake.webp);
+  background-color: #ccc;
+}
+.modal-item-29-3 {
+  background-image: url(img/re2/HUNK2019.webp);
+  background-color: #ccc;
+}
+/* //////////////////////////////////RE3///////////////////////////////////////// */
+.modal-item-31 {
+  background-image: url(img/re3/Jill_Full_RE3make.webp);
+  background-color: #ccc;
+}
+
+.modal-item-32 {
+  background-image: url(img/re3/Carlos_Oliveira_RE3_Nemesis_render.webp);
+  background-color: #ff78;
+}
+
+.modal-item-33 {
+  background-image: url(img/re3/NicholaiRE3.webp);
+  background-color: #fcc;
+}
+.modal-item-34 {
+  background-image: url(img/re3/MikhailV.webp);
+  background-color: #cc9;
+}
+.modal-item-35 {
+  background-image: url(img/re3/Brad_Vickers.webp);
+}
+
+.modal-item-36 {
+  background-image: url(img/re3/RE3_remake_January_14_2020_images_29.webp);
+  background-color: #ff78;
+}
+
+/* //////////////////////////////////RECV///////////////////////////////////////// */
+.modal-item-1cv {
+  background-image: url(img/recv/Resident_Evil_CODE_Veronica_-_Claire_Redfield_render_29.webp);
+  background-color: #ccc;
+}
+
+.modal-item-2cv {
+  background-image: url(img/recv/Steve_Burnside.webp);
+  background-color: #ff78;
+}
+
+.modal-item-3cv {
+  background-image: url(img/recv/Resident_Evil_CODE_Veronica_Chris_Redfield_render_01_alpha.webp);
+  background-color: #fcc;
+}
+.modal-item-4cv {
+  background-image: url(img/recv/Wesker_CV_ConceptArt.webp);
+  background-color: #cc9;
+}
+.modal-item-5cv {
+  background-image: url(img/recv/Alexiagvfxd.webp);
+}
+
+.modal-item-6cv {
+  background-image: url(img/recv/RECVAlfred.webp);
+  background-color: #ff78;
+}
+.modal-item-7cv {
+  background-image: url(img/recv/Rodrigo.webp);
+  background-color: #ccc;
+}
+/* //////////////////////////////////RE4///////////////////////////////////////// */
+.modal-item-41 {
+  background-image: url(img/re4/Resident_Evil_4_-_Leon_Scott_Kennedy_with_jacket_render.webp);
+  background-color: #ccc;
+}
+
+.modal-item-42 {
+  background-image: url(img/re4/Ashley--RE4--resident-evil-722340_613_1024.webp);
+  background-color: #ff78;
+}
+
+.modal-item-43 {
+  background-image: url(img/re4/Residentevil4_conceptart_XkIpm.webp);
+  background-color: #fcc;
+}
+.modal-item-44 {
+  background-image: url(img/re4/Ingrid_Hunnigan_RE4R_Profile.webp);
+  background-color: #cc9;
+}
+.modal-item-45 {
+  background-image: url(img/re4/Ada1.webp);
+}
+
+.modal-item-46 {
+  background-image: url(img/re4/Re4-ramon-salazar.webp);
+  background-color: #ff78;
+}
+
+.modal-item-47 {
+  background-image: url(img/re4/Re4-bitores-mendez-1.webp);
+  background-color: #ccc;
+}
+
+.modal-item-48 {
+  background-image: url(img/re4/Jackkrauser_2.webp);
+  background-color: #fcc;
+}
+
+.modal-item-49 {
+  background-image: url(img/re4/Osmund_Saddler_2.webp);
+  background-color: #ff78;
+}
+
+.modal-item-49-1 {
+  background-image: url(img/re4/Weskerre4.webp);
+  background-color: #ccc;
+}
+
+/* //////////////////////////////////RE5///////////////////////////////////////// */
+.modal-item-51 {
+  background-image: url(img/re5/Resident_Evil_5_Chris_Redfield_render_01_alpha.webp);
+  background-color: #ccc;
+}
+
+.modal-item-52 {
+  background-image: url(img/re5/929198_20080820_screen010.webp);
+  background-color: #ff78;
+}
+
+.modal-item-53 {
+  background-image: url(img/re5/Albert_Wesker_RE5.webp);
+  background-color: #fcc;
+}
+.modal-item-54 {
+  background-image: url(img/re5/JillDLC.webp);
+  background-color: #cc9;
+}
+.modal-item-55 {
+  background-image: url(img/re5/Resident-evil-5-20090218104219442.webp);
+  background-color: #ccc;
+}
+
+.modal-item-56 {
+  background-image: url(img/re5/Excella_Gionne.webp);
+  background-color: #ff78;
+}
+
+.modal-item-57 {
+  background-image: url(img/re5/OfficialIrving.webp);
+  background-color: #ccc;
+}
+
+.modal-item-58 {
+  background-image: url(img/re5/Spencer_wheelchair.webp);
+  background-color: #fcc;
+}
+
+.modal-item-59 {
+  background-image: url(img/re5/Captain_Dechant.webp);
+  background-color: #ff78;
+}
+
+.modal-item-59-1 {
+  background-image: url(img/re5/Dave_Johnson.webp);
+  background-color: #ccc;
+}
+.modal-item-59-2 {
+  background-image: url(img/re5/Kirk_Mathison.webp);
+  background-color: #ccc;
+}
+.modal-item-59-3 {
+  background-image: url(img/re5/Re5-reynard-fisher.webp);
+  background-color: #ccc;
+}
+/* //////////////////////////////////RE6///////////////////////////////////////// */
+.modal-item-61 {
+  background-image: url(img/re6/Leon_S._Kennedy_-_Biohazard_6.webp);
+  background-color: #ccc;
+}
+
+.modal-item-62 {
+  background-image: url(img/re6/Resident_Evil_6_Chris_Redfield_render_01_alpha.webp);
+  background-color: #ff78;
+}
+
+.modal-item-63 {
+  background-image: url(img/re6/Jakemuller.webp);
+  background-color: #fcc;
+}
+.modal-item-64 {
+  background-image: url(img/re6/Ada_Wong_RE6.webp);
+  background-color: #cc9;
+}
+.modal-item-65 {
+  background-image: url(img/re6/Helena_Harper..webp);
+  background-color: #ccc;
+}
+
+.modal-item-66 {
+  background-image: url(img/re6/Piers6a.webp);
+  background-color: #ff78;
+}
+
+.modal-item-67 {
+  background-image: url(img/re6/Sherry6a.webp);
+  background-color: #ccc;
+}
+
+.modal-item-68 {
+  background-image: url(img/re6/Carla536_t.webp);
+  background-color: #fcc;
+}
+
+.modal-item-69 {
+  background-image: url(img/re6/Derek_C_Simmons.webp);
+  background-color: #ff78;
+}
+
+.modal-item-69-1 {
+  background-image: url(img/re6/Hannigan_RE_6.webp);
+  background-color: #ccc;
+}
+.modal-item-69-2 {
+  background-image: url(img/re6/RE6_Adam_Benford.webp);
+  background-color: #ccc;
+}
+.modal-item-69-3 {
+  background-image: url(img/re6/RE6_Finn.webp);
+  background-color: #ccc;
+}
+.modal-item-69-4 {
+  background-image: url(img/re6/RE6_Deborah_Harper_t.webp);
+  background-color: #ccc;
+}
+
+/* //////////////////////////////////RE7///////////////////////////////////////// */
+.modal-item-71 {
+  background-image: url(img/re7/Ethan_Village_Render.webp);
+  background-color: #ccc;
+}
+
+.modal-item-72 {
+  background-image: url(img/re7/Tumblr_opq1ryTLHm1uq9trmo5_1280.webp);
+  background-color: #ff78;
+}
+
+.modal-item-73 {
+  background-image: url(img/re7/Jack_Baker_RE7_Avatar.webp);
+  background-color: #fcc;
+}
+.modal-item-74 {
+  background-image: url(img/re7/Marguerite_Baker_RE7_Avatar.webp);
+  background-color: #cc9;
+}
+.modal-item-75 {
+  background-image: url(img/re7/Lucas_Baker_RE7_Avatar.webp);
+  background-color: #ccc;
+}
+
+.modal-item-76 {
+  background-image: url(img/re7/Tumblr_opq1ryTLHm1uq9trmo4_1280.webp);
+  background-color: #ff78;
+}
+
+.modal-item-77 {
+  background-image: url(img/re7/Tumblr_opq1ryTLHm1uq9trmo6_1280.webp);
+  background-color: #ccc;
+}
+
+.modal-item-78 {
+  background-image: url(img/re7/Pete.webp);
+  background-color: #fcc;
+}
+
+.modal-item-79 {
+  background-image: url(img/re7/AndreRE7.webp);
+  background-color: #ff78;
+}
+
+.modal-item-79-1 {
+  background-image: url(img/re7/PolicemanguyRE7.webp);
+  background-color: #ccc;
+}
+.modal-item-79-2 {
+  background-image: url(img/re7/Alandouglas.webp);
+  background-color: #ccc;
+}
+.modal-item-79-3 {
+  background-image: url(img/re7/Resident-Evil-7-DLC-Not-a-Hero-Render.webp);
+  background-color: #ccc;
+}
+.modal-item-79-4 {
+  background-image: url(img/re7/Joe_Baker_RE7_Avatar.webp);
+  background-color: #ccc;
+}
+/* //////////////////////////////////RE8///////////////////////////////////////// */
+.modal-item-81 {
+  background-image: url(img/re8/Ethan_Village_Render\ .webp);
+  background-color: #ccc;
+}
+
+.modal-item-82 {
+  background-image: url(img/re8/Mia_Winters_29.webp);
+  background-color: #ff78;
+}
+
+.modal-item-83 {
+  background-image: url(img/re8/ChrisAFull.webp);
+  background-color: #fcc;
+}
+.modal-item-84 {
+  background-image: url(img/re8/Miranda_29.webp);
+  background-color: #cc9;
+}
+.modal-item-85 {
+  background-image: url(img/re8/HeisenbergFull.webp);
+  background-color: #ccc;
+}
+
+.modal-item-86 {
+  background-image: url(img/re8/MoreauAFull.webp);
+  background-color: #ff78;
+}
+
+.modal-item-87 {
+  background-image: url(img/re8/DonnaAndAngie.webp);
+  background-color: #ccc;
+}
+
+.modal-item-88 {
+  background-image: url(img/re8/ADimitrescuFull.webp);
+  background-color: #fcc;
+}
+
+.modal-item-89 {
+  background-image: url(img/re8/BDimitrescuFull.webp);
+  background-color: #ff78;
+}
+
+.modal-item-89-1 {
+  background-image: url(img/re8/CDimitrescuFull.webp);
+  background-color: #ccc;
+}
+.modal-item-89-2 {
+  background-image: url(img/re8/DDimitrescuFull.webp);
+  background-color: #ccc;
+}
+.modal-item-89-3 {
+  background-image: url(img/re8/The_Duke_29.webp);
+  background-color: #ccc;
+}
+.modal-item-89-4 {
+  background-image: url(img/re8/Elena_29.webp);
+  background-color: #ccc;
+}
+.modal-item-89-5 {
+  background-image: url(img/re8/Leonardo.webp);
+  background-color: #ccc;
+}
+
+.modal-item-89-6 {
+  background-image: url(img/re8/Luiza.webp);
+  background-color: #ccc;
+}
+
+.modal-item-89-7 {
+  background-image: url(img/re8/Anton.webp);
+  background-color: #ccc;
+}
+
+.modal-item-89-8 {
+  background-image: url(img/re8/Sebastian_29.webp);
+  background-color: #ccc;
+}
+
+.modal-item-89-9 {
+  background-image: url(img/re8/Roxana.webp);
+  background-color: #ccc;
+}
+.modal-item-89-91 {
+  background-image: url(img/re8/Iulian.webp);
+  background-color: #ccc;
+}
+.modal-item-89-92 {
+  background-image: url(img/re8/RosemaryFull.webp);
+  background-color: #ccc;
+}
+.modal-item-89-93 {
+  background-image: url(img/re8/RE8_RE.NET_record_icon_29.webp);
+  background-color: #ccc;
 }
